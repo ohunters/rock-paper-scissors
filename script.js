@@ -17,8 +17,6 @@ if (randomNumber === 1) {
     computerChoice = "scissors"
 };
 
-console.log(computerChoice)
-
 // Get human input and assign it human choice variable and make it lower case
 
 // Create play round function which takes computer choice and human choice
