@@ -7,28 +7,33 @@ let roundNumber = 0;
 let gameWinner = ""
 let randomNumber = Math.floor(Math.random() * 3 + 1)
 
-
 // Logic for computers choice
-function getComputerChoice {
+function getComputerChoice () {
     if (randomNumber === 1) {
-        computerChoice = "rock";
+        computerChoice = "Rock";
     } else if (randomNumber === 2) {
-        computerChoice = "paper"
+        computerChoice = "Paper"
     } else {
-        computerChoice = "scissors"
+        computerChoice = "Scissors"
     };
 }
-
-
-
 // Logic for humans choice
-function getHumanChoice {
-    humanChoice = prompt("Please pick either Rock, Paper or Scissors")
-    humanChoice = humanChoice.toLowerCase();
-};
+function getHumanChoice () {
+    humanChoice = prompt("Welcome to this game of Rock Paper Scissors where first to 5 rounds win! To start, please pick either Rock, Paper or Scissors");
+    humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
+    return humanChoice;
+}
 
+console.log(getHumanChoice());
 
-// Create play round function which takes computer choice and human choice
+// Logic for rounds 
+function playRound (computerChoice, humanChoice) {
+    if (computerChoice === humanChoice) {
+        alert(`Draw! You both picked ${computerChoice}`)
+    } else if ((computerChoice ===  "rock" && humanChoice === "scissors") || (computerChoice === "paper" && humanChoice === "rock") || (computerChoice === "scissors" && humanChoice === "paper")) {
+        alert(`You lose! ${computerChoice[0].toUppercase()} beats `)
+    }
+}
 
 // If computer pick is the same as human return draw
 
