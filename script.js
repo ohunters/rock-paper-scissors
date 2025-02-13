@@ -17,7 +17,10 @@ if (randomNumber === 1) {
     computerChoice = "scissors"
 };
 
-// Get human input and assign it human choice variable and make it lower case
+
+// Logic for humans choice
+humanChoice = prompt("Please pick either Rock, Paper or Scissors")
+humanChoice = humanChoice.toLowerCase();
 
 // Create play round function which takes computer choice and human choice
 // If computer pick is the same as human return draw
