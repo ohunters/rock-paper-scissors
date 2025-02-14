@@ -16,6 +16,7 @@ function getComputerChoice () {
     } else {
         computerChoice = "Scissors"
     };
+    return computerChoice;
 }
 // Logic for humans choice
 function getHumanChoice () {
@@ -24,26 +25,20 @@ function getHumanChoice () {
     return humanChoice;
 }
 
-console.log(getHumanChoice());
-
 // Logic for rounds 
 function playRound (computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
         alert(`Draw! You both picked ${computerChoice}`)
-    } else if ((computerChoice ===  "rock" && humanChoice === "scissors") || (computerChoice === "paper" && humanChoice === "rock") || (computerChoice === "scissors" && humanChoice === "paper")) {
-        alert(`You lose! ${computerChoice[0].toUppercase()} beats `)
+    } else if ((computerChoice ===  "Rock" && humanChoice === "Scissors") || (computerChoice === "Paper" && humanChoice === "Rock") || (computerChoice === "Scissors" && humanChoice === "Paper")) {
+        alert(`You lose! ${computerChoice} beats ${humanChoice}`)
+    } else {
+        alert(`You win! ${humanChoice} beats ${computerChoice}`)
     }
 }
 
-// If computer pick is the same as human return draw
+let computerSelection = getComputerChoice();
+let humanSelection = getHumanChoice();
 
-// If computer picks rock and human picks scissors return computer wins
-// If computer picks paper and human picks rock return computer wins
-// If computer picks scissors and human picks paper return computer wins
-
-// If any other outcome return computer wins
-
-// Add one to round variable
-
+playRound(computerSelection, humanSelection);
 
 
