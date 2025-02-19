@@ -1,8 +1,9 @@
 // Select elements from DOM
+let selectChoiceHeader = document.querySelector(".select-choice-header")
 let optionButtonRock = document.querySelector(".option-button-rock");
 let optionButtonPaper = document.querySelector(".option-button-paper");
 let optionButtonScissors = document.querySelector(".option-button-scissors");
-let resultContainer = document.querySelector(".result-container");
+let resultContainerParagraph = document.querySelector(".result-container-paragraph");
 
 // Game Variables
 let computerScore = 0;
@@ -14,30 +15,39 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
 }
 
-// Logic for human's choice
-function getHumanChoice() {
-    let choice = prompt("First to 5 Wins! Pick Rock, Paper, or Scissors:");
-    return choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
-}
-
 // Logic for a single round
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
-        alert(`Draw! You both picked ${computerChoice}. Score - You: ${humanScore}, Computer: ${computerScore}`);
+        resultContainerParagraph.textContent = `Draw! You both picked ${computerChoice}. Score - You: ${humanScore}, Computer: ${computerScore}`;
     } else if (
         (computerChoice === "Rock" && humanChoice === "Scissors") ||
         (computerChoice === "Paper" && humanChoice === "Rock") ||
         (computerChoice === "Scissors" && humanChoice === "Paper")
     ) {
         computerScore++;
-        alert(`You lose! ${computerChoice} beats ${humanChoice}. Score - You: ${humanScore}, Computer: ${computerScore}`);
+        resultContainerParagraph.textContent = `You lose! ${computerChoice} beats ${humanChoice}. Score - You: ${humanScore}, Computer: ${computerScore}`;
     } else {
         humanScore++;
-        alert(`You win! ${humanChoice} beats ${computerChoice}. Score - You: ${humanScore}, Computer: ${computerScore}`);
+        resultContainerParagraph.textContent = `You win! ${humanChoice} beats ${computerChoice}. Score - You: ${humanScore}, Computer: ${computerScore}`;
     }
 }
 
+optionButtonRock.addEventListener("click", () => {
+    let computerChoice = getComputerChoice();
+    playRound(computerChoice, "Rock")
+});
+optionButtonPaper.addEventListener("click", () => {
+    let computerChoice = getComputerChoice();
+    playRound(computerChoice, "Paper")
+});
+optionButtonScissors.addEventListener("click", () => {
+    let computerChoice = getComputerChoice();
+    playRound(computerChoice, "Scissors")
+});
+
+
 // Main game loop
+/* 
 while (computerScore < 5 && humanScore < 5) {
     let computerChoice = getComputerChoice();
     let humanChoice = getHumanChoice();
@@ -52,4 +62,5 @@ while (computerScore < 5 && humanScore < 5) {
         break;
     }
 }
+*/
 
