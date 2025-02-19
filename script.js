@@ -1,3 +1,9 @@
+// Select elements from DOM
+let optionButtonRock = document.querySelector(".option-button-rock");
+let optionButtonPaper = document.querySelector(".option-button-paper");
+let optionButtonScissors = document.querySelector(".option-button-scissors");
+let resultContainer = document.querySelector(".result-container");
+
 // Game Variables
 let computerScore = 0;
 let humanScore = 0;
@@ -46,3 +52,4 @@ while (computerScore < 5 && humanScore < 5) {
         break;
     }
 }
+
